@@ -21,6 +21,11 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       
+      
+      - run:
+          name: ls-la
+          command: ls -la
+          
       - run:
           name: mvnversion
           command: mvn --version
