@@ -18,14 +18,19 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      
+      - run:
+          name: cd
+          command: cd MyMusic/
+      
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
-          command: ./MyMusic/mvn -B -DskipTests clean package
+          command: mvn -B -DskipTests clean package
       # Then run your tests!
       - run:
           name: Test
-          command: ./MyMusic/mvn test
+          command: mvn test
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
