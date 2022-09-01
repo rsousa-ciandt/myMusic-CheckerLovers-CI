@@ -38,9 +38,12 @@ jobs:
     steps:
       - checkout
       - heroku/install
+      - run: 
+          name: set-project-path
+          command: heroku config:set PROJECT_PATH=/home/circleci/project/MyMusic
       - run:
-          command: heroku local:version
-  
+          name: deploy-to-heroku
+          command: git push https://heroku:$HEROKU@git.heroku.com/$APP_NAME.git
           
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
