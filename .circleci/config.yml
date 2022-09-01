@@ -35,14 +35,19 @@ jobs:
           
   deploy:
     executor: heroku/default
+    parameters: 
+      api-key: 
+        default: HEROKU
+        type: env_var_name
+      app-name:
+        default: APP_NAME
+        type: env_var_name
     steps:
-      - checkout
       - heroku/install
-      - run:
-          working_directory: /home/circleci/project/MyMusic
-          name: deploy-to-heroku
-          command: |
-          git push https://heroku:$HEROKU@git.heroku.com/$APP_NAME.git
+      - heroku/check-authentication
+      - checkout
+      - heroku/deploy-via-git:
+          api-key: << parameters.api-key >>
           
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
