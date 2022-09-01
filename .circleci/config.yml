@@ -37,10 +37,10 @@ jobs:
     executor: heroku/default
     parameters: 
       api-key: 
-        default: $HEROKU
+        default: HEROKU
         type: env_var_name
       app-name:
-        default: $APP_NAME
+        default: APP_NAME
         type: env_var_name
     steps:
       - heroku/install
