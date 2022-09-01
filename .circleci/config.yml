@@ -36,9 +36,8 @@ jobs:
     steps:
       - checkout
       - run:
-          working_directory: /home/circleci/project/MyMusic
           name: Deploy to Heroku
-          command: git push 
+          command: git push https://git.heroku.com/demo-spring-test.git master
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
