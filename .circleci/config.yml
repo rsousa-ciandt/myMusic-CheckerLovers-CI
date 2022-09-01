@@ -2,6 +2,9 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs: 
+  heroku: circleci/heroku@1.2.6
+  
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -31,13 +34,14 @@ jobs:
           command: mvn test
 
   deploy:
-    docker:
-      - image: alpine/git
+    executor: heroku/default
     steps:
       - checkout
+      - heroku/install
       - run:
           name: Deploy to Heroku
-          command: git push https://heroku:$HEROKU@git.heroku.com/demo-spring-test.git main
+          command: echo "agora vai"
+      - heroku/deploy-via-git
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
