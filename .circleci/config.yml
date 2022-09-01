@@ -37,7 +37,7 @@ jobs:
       - checkout
       - run:
           name: Deploy to Heroku
-          command: git push https://heroku/$HEROKU@git.heroku.com/demo-spring-test.git main
+          command: git push https://heroku:$HEROKU@git.heroku.com/demo-spring-test.git main
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
