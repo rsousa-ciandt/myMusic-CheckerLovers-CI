@@ -40,7 +40,7 @@ jobs:
       - heroku/install
       - run: 
           name: set-project-path
-          command: heroku config:set PROJECT_PATH=/home/circleci/project/MyMusic
+          command: heroku config:set -a PROJECT_PATH=/home/circleci/project/MyMusic
       - run:
           name: deploy-to-heroku
           command: git push https://heroku:$HEROKU@git.heroku.com/$APP_NAME.git
