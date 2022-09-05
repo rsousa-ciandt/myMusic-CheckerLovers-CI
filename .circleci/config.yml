@@ -48,9 +48,9 @@ jobs:
       - checkout
       - run:
           command: echo ${HEROKU_API_KEY}
-#       - heroku/deploy-via-git:
-#           api-key: << parameters.api-key >>
-#           app-name: << parameters.app-name >>
+      - heroku/deploy-via-git:
+          api-key: << parameters.api-key >>
+          app-name: << parameters.app-name >>
           
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
