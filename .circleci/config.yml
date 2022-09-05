@@ -47,7 +47,7 @@ jobs:
       - heroku/check-authentication
       - checkout
       - run:
-          command: echo ${HEROKU}
+          command: echo ${HEROKU_API_KEY}
 #       - heroku/deploy-via-git:
 #           api-key: << parameters.api-key >>
 #           app-name: << parameters.app-name >>
