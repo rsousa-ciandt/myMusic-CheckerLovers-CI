@@ -34,14 +34,14 @@ jobs:
           command: mvn test
           
   deploy:
-    executor: heroku/default
-    parameters: 
-      api-key: 
-        default: HEROKU
-        type: env_var_name
-      app-name:
-        default: APP_NAME
-        type: env_var_name
+#     executor: heroku/default
+#     parameters: 
+#       api-key: 
+#         default: HEROKU
+#         type: env_var_name
+#       app-name:
+#         default: APP_NAME
+#         type: env_var_name
     steps:
       - heroku/install
       - heroku/check-authentication
